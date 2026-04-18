@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Open</title>
+
+<style>
+body {
+  margin:0;
+  font-family:Arial;
+  background: radial-gradient(circle,#1a1f3a,#0b0f1a);
+  color:white;
+  text-align:center;
+}
+
+.wrap {
+  max-width:420px;
+  margin:auto;
+  padding:40px 16px;
+}
+
+.card {
+  padding:25px;
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,0.1);
+  background:rgba(255,255,255,0.03);
+}
+
+.icon {
+  font-size:60px;
+  margin-bottom:15px;
+}
+
+h1 {
+  font-size:26px;
+  margin-bottom:10px;
+}
+
+p {
+  opacity:0.8;
+  line-height:1.4;
+}
+
+.steps {
+  margin-top:20px;
+}
+
+.step {
+  display:flex;
+  align-items:center;
+  background:rgba(255,0,0,0.05);
+  border:1px solid rgba(255,0,0,0.4);
+  border-radius:14px;
+  padding:12px;
+  margin-bottom:10px;
+}
+
+.num {
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  background:red;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-right:10px;
+  font-weight:bold;
+}
+
+.arrow {
+  position:absolute;
+  top:90px;
+  right:20px;
+  font-size:40px;
+  animation: up 1s infinite;
+}
+
+@keyframes up {
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+  100%{transform:translateY(0)}
+}
+
+.btn {
+  margin-top:20px;
+  display:block;
+  background:red;
+  padding:16px;
+  border-radius:14px;
+  text-decoration:none;
+  color:white;
+  font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="arrow">⬆️</div>
+
+<div class="wrap">
+  <div class="card">
+
+    <div class="icon">⚠️</div>
+
+    <h1 id="title">Откройте в браузере</h1>
+
+    <p id="desc">
+      Чтобы открыть игру, нажмите 3 точки и выберите "Открыть в браузере"
+    </p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="num">1</div>
+        <div id="s1">Нажмите ... (три точки)</div>
+      </div>
+
+      <div class="step">
+        <div class="num">2</div>
+        <div id="s2">Выберите "Открыть в браузере"</div>
+      </div>
+
+      <div class="step">
+        <div class="num">3</div>
+        <div id="s3">Наслаждайтесь игрой!</div>
+      </div>
+    </div>
+
+    <a href="play.html" class="btn" id="btn">CONTINUE</a>
+
+  </div>
+</div>
+
+<script>
+let lang = navigator.language || navigator.userLanguage;
+
+if(lang.startsWith("ru")){
+  // уже русский
+}
+else if(lang.startsWith("es")){
+  document.getElementById("title").innerText = "Abrir en el navegador";
+  document.getElementById("desc").innerText =
+    "Para abrir el juego, toca los 3 puntos y selecciona 'Abrir en el navegador'";
+  document.getElementById("s1").innerText = "Toca ... (tres puntos)";
+  document.getElementById("s2").innerText = "Selecciona 'Abrir en el navegador'";
+  document.getElementById("s3").innerText = "¡Disfruta!";
+  document.getElementById("btn").innerText = "CONTINUAR";
+}
+else {
+  document.getElementById("title").innerText = "Open in Browser";
+  document.getElementById("desc").innerText =
+    "To open the game, tap the 3 dots and select 'Open in Browser'";
+  document.getElementById("s1").innerText = "Tap ... (three dots)";
+  document.getElementById("s2").innerText = "Select 'Open in Browser'";
+  document.getElementById("s3").innerText = "Enjoy!";
+  document.getElementById("btn").innerText = "CONTINUE";
+}
+</script>
+
+</body>
+</html>
